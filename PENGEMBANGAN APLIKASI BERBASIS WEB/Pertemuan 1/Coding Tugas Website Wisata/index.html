@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DF Scenery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="left-header">
+      <h1><span class="white">DF</span><span class="black">Scenery</span></h1>
+      <nav class="auth-nav" id="authNav">
+        <a href="#" onclick="openModal()">Login</a>
+        <a href="#" onclick="openModal();showRegister()">Register</a>
+      </nav>
+    </div>
+    <nav class="main-nav">
+      <button onclick="goHome()">Home</button>
+      <button onclick="goTickets()">Tickets</button>
+      <button onclick="goPreview()">Preview</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="instagram">
+      <a href="https://instagram.com/__davidfirdaus" target="_blank">
+        <img src="instagramlogo.png" alt="Instagram">
+      </a>
+    </div>
+  </section>
+
+  <!-- LOGIN & REGISTER MODAL -->
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+
+      <!-- LOGIN FORM -->
+      <div id="loginForm">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p>Belum punya akun? <a href="#" onclick="showRegister()">Register</a></p>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="registerForm" style="display:none;">
+        <h2>Register</h2>
+        <input type="text" id="registerUsername" placeholder="Username">
+        <input type="password" id="registerPassword" placeholder="Password">
+        <button onclick="register()">Register</button>
+        <p>Sudah punya akun? <a href="#" onclick="showLogin()">Login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

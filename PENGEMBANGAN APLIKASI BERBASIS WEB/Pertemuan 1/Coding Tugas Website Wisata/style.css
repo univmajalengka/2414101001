@@ -1,0 +1,283 @@
+/* === GLOBAL (buat semua halaman) === */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #0077b6;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+header h1 { margin: 0; }
+header h1 .white { color: #fff; }
+header h1 .black { color: #000; }
+
+nav button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* === HERO SECTION (index.html) === */
+.hero {
+  height: 100vh;
+  background: url('20250919_123536.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h2 {
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-size: 28px;
+}
+
+/* Instagram Icon */
+.instagram {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+.instagram img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.instagram img:hover { transform: scale(1.1); }
+
+/* === TICKETS PAGE (tickets.html) === */
+body.tickets-page {
+  background: url('20241013_165251.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  color: white;
+  height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* overlay gelap supaya teks jelas */
+body.tickets-page::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 0;
+}
+.ticket-section, .ticket-message {
+  position: relative;
+  z-index: 1; /* biar di atas overlay */
+}
+
+.ticket-section {
+  display: flex;
+  gap: 30px;
+  margin-top: 80px; /* biar tidak ketutup header */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ticket-btn {
+  padding: 20px 50px;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.85);
+  color: #2c3e50;
+  transition: transform 0.2s, background 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+}
+.ticket-btn:hover {
+  background: #0077b6;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* === PESAN TIKET (tickets.html) === */
+.ticket-message {
+  margin-top: 25px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  display: none; /* default tersembunyi */
+  text-align: center;
+  max-width: 500px;
+}
+.ticket-message.success {
+  background: #90ee90;
+  color: #003300;
+}
+.ticket-message.error {
+  background: #ffcccc;
+  color: #660000;
+}
+
+/* === PREVIEW PAGE (preview.html) === */
+body.preview-page {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  color: #333;
+}
+.preview-gallery {
+  margin-top: 80px; 
+  padding: 20px;
+  text-align: center;
+}
+.preview-gallery h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.gallery img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.gallery img:hover { transform: scale(1.02); }
+
+/* === LOGIN & REGISTER MENU === */
+.left-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.auth-nav a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+.auth-nav a:hover {
+  background: #ffffff5d;
+  color: #000;
+}
+
+/* === LOGIN & REGISTER MODAL === */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.modal-content h2 { margin-bottom: 15px; }
+.modal-content input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.modal-content button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #0077b6;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.modal-content button:hover { background: #005f87; }
+.close {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  nav button {
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  .ticket-section {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 100px;
+  }
+
+  .ticket-btn {
+    width: 90%;
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .ticket-message {
+    font-size: 16px;
+    padding: 10px;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 { font-size: 20px; }
+  .ticket-btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+}

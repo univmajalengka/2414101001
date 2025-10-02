@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tickets - DF Scenery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="tickets-page">
+  <header>
+    <h1><span class="white">DF</span><span class="black">Scenery</span></h1>
+    <nav>
+      <a href="index.html"><button>Home</button></a>
+      <a href="tickets.html"><button>Tickets</button></a>
+      <a href="preview.html"><button>Preview</button></a>
+    </nav>
+  </header>
+
+  <section class="ticket-section">
+    <button class="ticket-btn" onclick="buyTicket('Family')">FAMILY TICKET</button>
+    <button class="ticket-btn" onclick="buyTicket('Single')">SINGLE TICKET</button>
+    <button class="ticket-btn" onclick="buyTicket('Double')">DOUBLE TICKET</button>
+  </section>
+
+  <div id="message" class="ticket-message"></div>
+
+  <script>
+    function buyTicket(type) {
+      const confirmBuy = confirm("Apakah anda ingin membeli tiket " + type + " ?");
+      const msg = document.getElementById("message");
+
+      if (confirmBuy) {
+        // Simpan ke LocalStorage (dummy database)
+        let tickets = JSON.parse(localStorage.getItem("tickets")) || [];
+        tickets.push({ name: "Guest", email: "guest@example.com", ticket_type: type });
+        localStorage.setItem("tickets", JSON.stringify(tickets));
+
+        msg.innerText = "Tiket berhasil dibeli!";
+        msg.className = "ticket-message success";
+        msg.style.display = "block";
+      } else {
+        msg.innerText = "Pembelian tiket dibatalkan.";
+        msg.className = "ticket-message error";
+        msg.style.display = "block";
+      }
+
+      // Hilang setelah 3 detik
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
