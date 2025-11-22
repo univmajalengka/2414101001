@@ -1,5 +1,5 @@
 # 💫 About Me:
-🎓 Informatics Student<br>💻 Exploring Software Development<br>🌱 Currently learning Python | C++ | Web Development<br>📂 Sharing academic projects & personal coding experiments
+Nama : David Firdaus<br>NPM : 2414101001<br>Fakultas : Teknik<brProdi : Informatika
 
 
 ## 🌐 Socials:
