@@ -1,0 +1,53 @@
+Dokumentasi Error – Bagian 1
+Hasil pemeriksaan terhadap error yang muncul pada program pendaftaran siswa.
+
+1. Error pada DOCTYPE di form-daftar.php
+   File: form-daftar.php
+   Masalah: Di baris pertama DOCTYPE ditulis salah sehingga struktur HTML tidak dikenali dengan benar.
+   Penyebab: Penulisan "<DOCTYPE >" tidak sesuai aturan HTML.
+   Solusi: Mengganti tulisan tersebut menjadi "<!DOCTYPE html>".
+
+2. Error variabel PHP tidak memakai tanda $
+   File: proses-pendaftaran.php
+   Masalah: Di bagian pengambilan data sekolah, variabel ditulis tanpa tanda $.
+   Contoh salah: sekolah = $_POST['sekolah_asal'];
+   Dampak: PHP mengira itu nama konstanta dan memunculkan error fatal.
+   Solusi: Ubah menjadi $sekolah = $_POST['sekolah_asal'];
+
+3. Error penulisan syntax SQL (VALUE)
+   File: proses-pendaftaran.php
+   Masalah: Penulisan SQL menggunakan VALUE padahal MySQL yang benar adalah VALUES.
+   Dampak: Query tidak bisa dijalankan dan muncul error syntax SQL.
+   Solusi: Ubah VALUE menjadi VALUES.
+
+4. Error koneksi database tidak terbaca
+   File: proses-pendaftaran.php
+   Masalah: mysqli_query gagal dieksekusi ketika variabel koneksi $db tidak terbaca.
+   Penyebab: Bisa terjadi jika file koneksi.php salah atau password database tidak cocok.
+   Solusi: Memastikan koneksi.php benar dan informasi login database tepat.
+
+5. Typo pada komentar redirect
+   File: proses-pendaftaran.php
+   Masalah: Terdapat tulisan "indek.ph" pada komentar.
+   Dampak: Tidak berpengaruh ke program tapi membingungkan.
+   Solusi: Perbaiki menjadi "index.php".
+
+6. Tidak ada pengecekan input sebelum disimpan
+   File: proses-pendaftaran.php
+   Masalah: Program tetap mencoba menyimpan data meskipun ada form yang kosong.
+   Dampak: Data di database bisa tidak lengkap.
+   Solusi: Menambahkan pengecekan seperti empty() untuk memastikan semua form terisi.
+
+7. Query SQL masih raw dan tidak aman
+   File: proses-pendaftaran.php
+   Masalah: Query yang digunakan masih langsung digabung dengan data input.
+   Dampak: Berpotensi terkena SQL Injection.
+   Solusi: Mengganti query biasa menjadi prepared statement.
+
+8. Tidak ada exit setelah header redirect
+   File: proses-pendaftaran.php
+   Masalah: Setelah melakukan pengalihan halaman, script tetap berjalan.
+   Dampak: Bisa menyebabkan eksekusi yang tidak diperlukan.
+   Solusi: Tambahkan exit setelah header redirect.
+
+
